@@ -12,29 +12,25 @@ namespace CMSWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
+        }
+
+        protected void Add_Click(object sender, EventArgs e) {
+
             // get user inputs
             string pagetitle = PageTitleInput.Text;
             string pagebody = PageBodyInput.Text;
 
-            // todo: cant include single quote in pagebody.
-
-            AddBtn.Click += Add_Click(pagetitle, pagebody);
-        }
-
-        private EventHandler Add_Click(string pagetitle, string pagebody)
-        {
             // insert query, page - auto increment, isPublished - default true (1 in tinyint)
-            string query = "INSERT INTO `pages`(`pageid`, `pagetitle`, `pagebody`) VALUES (" +
-                null +
-                "," + pagetitle +
-                "," + pagebody + ")";
+            string query = "INSERT INTO pages(pagetitle, pagebody) VALUES (\"" +
+                pagetitle + "\",\"" +
+                pagebody + "\")";
 
             // excute the insert query
             new WEBSITEDB().CRUD_Query(query);
             // jumb to manage page
             Response.Redirect("Manage.aspx");
-
-            throw new NotImplementedException();
         }
     }
 }

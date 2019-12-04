@@ -9,7 +9,7 @@
 
     <asp:TextBox ID="PageBodyInput" runat="server"></asp:TextBox>
 
-    <asp:Button ID="AddBtn" class="btn" runat="server" Text="Add" />
+    <asp:Button ID="AddBtn" class="btn" OnClick="Add_Click" runat="server" Text="Add" />
 
 
 </asp:Content>
