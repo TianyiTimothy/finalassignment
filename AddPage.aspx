@@ -1,15 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddPage.aspx.cs" Inherits="CMSWebsite.AddPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    Page Title:
+    <h1 class=".display-1">Add Page</h1>
+    <label for="MainContent_PageTitle">Page Title: </label>
+    <br />
 
-    <asp:TextBox ID="PageTitleInput" runat="server"></asp:TextBox>
+    <asp:TextBox ID="PageTitle" CssClass="form-control" runat="server"></asp:TextBox>
+    <br />
+    <br />
 
-    Page Body: 
+    <label for="MainContent_PageBody">Page Body: </label>
+    <br />
 
-    <asp:TextBox ID="PageBodyInput" runat="server"></asp:TextBox>
+    <asp:TextBox ID="PageBody" CssClass="form-control" runat="server" TextMode="MultiLine" Height="300px"></asp:TextBox>
+    <br />
 
-    <asp:Button ID="AddBtn" class="btn" OnClick="Add_Click" runat="server" Text="Add" />
+    <asp:Button ID="AddBtn" CssClass="btn btn-primary" OnClick="Add_Click" runat="server" Text="Add" />
 
 
 </asp:Content>

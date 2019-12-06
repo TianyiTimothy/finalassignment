@@ -13,22 +13,22 @@ namespace CMSWebsite {
     public partial class AddPage {
         
         /// <summary>
-        /// PageTitleInput control.
+        /// PageTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PageTitleInput;
+        protected global::System.Web.UI.WebControls.TextBox PageTitle;
         
         /// <summary>
-        /// PageBodyInput control.
+        /// PageBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PageBodyInput;
+        protected global::System.Web.UI.WebControls.TextBox PageBody;
         
         /// <summary>
         /// AddBtn control.

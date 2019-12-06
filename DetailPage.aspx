@@ -4,8 +4,8 @@
 
     <h1 id="PageTitle" runat="server"></h1>
     <p id="PageBody" runat="server"></p>
-    <div id="PageAction" runat="server"></div>
+    <div id="PageAction" style="display:inline-block" runat="server"></div>
 
-    <asp:Button ID="RecoverBtn" class="btn btn-info" OnClick="Recover_Click" runat="server" Text="Recover" />
+    <asp:Button ID="RecoverBtn" class="btn btn-success" OnClick="Recover_Click" runat="server" Text="Recover" />
     <asp:Button ID="DeleteBtn" class="btn btn-danger" OnClick="Delete_Click" runat="server" Text="Delete" />
 </asp:Content>

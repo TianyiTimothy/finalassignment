@@ -2,19 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 class=".display-1">Manage Pages</h1>
-    <div id="page_search_div" class="form-group">
-        <asp:Label for="page_search" runat="server">Search:</asp:Label>
-        <asp:TextBox ID="page_search" class="form-control" runat="server"></asp:TextBox>
-        <asp:Button class="btn" runat="server" Text="submit" />
+    <div id="page_search_div" class="form-group" style="display:inline;">
+        <asp:Label for="MainContent_page_search" runat="server">Search:</asp:Label>
+        <asp:TextBox ID="page_search" class="form-control" style="display:inline-block;" runat="server"></asp:TextBox>
+        <asp:Button class="btn btn-success" style="display:inline-block;" runat="server" Text="Search" />
     </div>
-
     <a class="btn btn-primary" href="\AddPage.aspx?">Add</a>
+    <br />
+    <br />
+    <br />
     <div class="text-center">
-        <div class="row">
-            <div class="col-xs-3">PAGE ID</div>
-            <div class="col-xs-3">PAGE TITLE</div>
-            <div class="col-xs-3">IS PUBLISHED</div>
-            <div class="col-xs-3">ACTION</div>
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-xs-3" style="font-weight:bold;">PAGE ID</div>
+            <div class="col-xs-3" style="font-weight:bold;">PAGE TITLE</div>
+            <div class="col-xs-3" style="font-weight:bold;">IS PUBLISHED</div>
+            <div class="col-xs-3" style="font-weight:bold;">ACTION</div>
         </div>
         <div id="page_result" runat="server">
             <div class="row">

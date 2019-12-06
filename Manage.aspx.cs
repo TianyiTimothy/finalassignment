@@ -31,7 +31,7 @@ namespace CMSWebsite
 
             if (searchkey != "")
             {
-                query += "WHERE PAGEID LIKE '%" + searchkey + "%' ";
+                query += " WHERE PAGEID LIKE '%" + searchkey + "%' ";
                 query += "OR PAGETITLE LIKE '%" + searchkey + "%' ";
                 query += "OR PAGEBODY LIKE '%" + searchkey + "%' ";
             }
@@ -59,13 +59,13 @@ namespace CMSWebsite
 
                 //< div class="col-xs-3">PAGE ID</div>
 
-                page_result.InnerHtml += "<div class=\"row\">";
+                page_result.InnerHtml += "<div class=\"row\" style=\"margin-top: 10px; padding-top: 10px; border-top: solid #DDD 1px;\">";
                 page_result.InnerHtml += "<div class=\"col-xs-3\">" + pageid + "</div>";
                 page_result.InnerHtml += "<div class=\"col-xs-3\"> <a href=\"DetailPage.aspx?pageid=" + pageid + "\">" + pagetitle + "</a></div>";
                 //page_result.InnerHtml += "<div class=\"col-xs-3\">" + pagebody + "</div>";
                 page_result.InnerHtml += "<div class=\"col-xs-3\">" + ispublished + "</div>";
                 page_result.InnerHtml += "<div class=\"col-xs-3\">" +
-                    "<a href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>" +
+                    "<a class=\"btn btn-info\" href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>" +
                     "</div>";
                 page_result.InnerHtml += "</div>";
 

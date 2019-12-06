@@ -37,7 +37,7 @@ namespace CMSWebsite
 
             // add edit button
             PageAction.InnerHtml =
-                "<a href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>";
+                "<a class=\"btn btn-info\" href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>";
 
             // add delete or recover button
             if (isPublished == "True" || isPublished == "1")

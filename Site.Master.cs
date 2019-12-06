@@ -13,6 +13,8 @@ namespace CMSWebsite
         {
             // set up navigation
             //navigation.InnerHtml = "<li><a href=\"Manage\">Manage</a></li>";
+            // clean navigation
+            navigation.InnerHtml = "";
 
             // query for page titles
             string query = "SELECT pageid, pagetitle FROM pages WHERE isPublished = true";

@@ -2,14 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="pageWrapper" runat="server">
-        Page Title: 
-        <asp:TextBox ID="PageTitle" runat="server"></asp:TextBox>
+        <h1 class=".display-1">Edit Page</h1>
+        <label for="MainContent_PageTitle">Page Title: </label>
+        <br />
+        <asp:TextBox ID="PageTitle" CssClass="form-control" runat="server"></asp:TextBox>
 
-        Page Body: 
-        <asp:TextBox ID="PageBody" runat="server"></asp:TextBox>
+        <br />
+        <br />
 
-        <asp:Button ID="EditBtn" class="btn" OnClick="Edit_Click" runat="server" Text="Edit" />
-        <asp:Button ID="RecoverBtn" class="btn btn-info" OnClick="Recover_Click" runat="server" Text="Recover" />
+        <label for="MainContent_PageBody">Page Body: </label>
+        <br />
+        <asp:TextBox ID="PageBody" CssClass="form-control" runat="server" TextMode="MultiLine" Height="300px"></asp:TextBox>
+        <br />
+
+        <asp:Button ID="EditBtn" class="btn btn-info" OnClick="Edit_Click" runat="server" Text="Edit" />
+        <asp:Button ID="RecoverBtn" class="btn btn-success" OnClick="Recover_Click" runat="server" Text="Recover" />
         <asp:Button ID="DeleteBtn" class="btn btn-danger" OnClick="Delete_Click" runat="server" Text="Delete" />
     </div>
 </asp:Content>

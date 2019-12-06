@@ -19,8 +19,8 @@ namespace CMSWebsite
         protected void Add_Click(object sender, EventArgs e) {
 
             // get user inputs
-            string pagetitle = PageTitleInput.Text;
-            string pagebody = PageBodyInput.Text;
+            string pagetitle = PageTitle.Text;
+            string pagebody = PageBody.Text;
 
             // insert query, page - auto increment, isPublished - default true (1 in tinyint)
             string query = "INSERT INTO pages(pagetitle, pagebody) VALUES (\"" +
