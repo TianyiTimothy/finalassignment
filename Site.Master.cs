@@ -12,7 +12,7 @@ namespace CMSWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             // set up navigation
-            navigation.InnerHtml = "<li><a href=\"Manage\">Manage</a></li>";
+            //navigation.InnerHtml = "<li><a href=\"Manage\">Manage</a></li>";
 
             // query for page titles
             string query = "SELECT pageid, pagetitle FROM pages WHERE isPublished = true";

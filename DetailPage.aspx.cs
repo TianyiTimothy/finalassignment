@@ -22,22 +22,74 @@ namespace CMSWebsite
             }
 
             // query with pageid
-            string query = "SELECT pagetitle, pagebody FROM pages WHERE pageid = " + pageid;
+            string query = "SELECT pagetitle, pagebody, isPublished FROM pages WHERE pageid = " + pageid;
 
             List<Dictionary<string, string>> ResultSet = new WEBSITEDB().List_Query(query);
 
-            foreach (Dictionary<string, string> row in ResultSet)
+            Dictionary<string, string> row = ResultSet[0];
+            string pagetitle = row["pagetitle"];
+            string pagebody = row["pagebody"];
+            string isPublished = row["isPublished"];
+
+            // get the page id first
+            PageTitle.InnerText = pagetitle;
+            PageBody.InnerText = pagebody;
+
+            // add edit button
+            PageAction.InnerHtml =
+                "<a href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>";
+
+            // add delete or recover button
+            if (isPublished == "True" || isPublished == "1")
             {
-                string pagetitle = row["pagetitle"];
-                string pagebody = row["pagebody"];
-
-                // get the page id first
-                PageTitle.InnerText = pagetitle;
-                PageBody.InnerText = pagebody;
-
-                PageAction.InnerHtml =
-                    "<a href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>";
+                // if isPublished, hide recover button
+                RecoverBtn.Style.Add("display", "none");
             }
+            else
+            {
+                // if not, hide delete button
+                DeleteBtn.Style.Add("display", "none");
+
+            }
+        }
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            // get pageid
+            string pageid = Request.QueryString["pageid"];
+
+            bool isPublished = false;
+
+            // execute update query
+            //UPDATE pages SET pagetitle = "123", pagebody = "321", isPublished = true WHERE pageid = 1
+            string query = "UPDATE pages SET isPublished = " + isPublished +
+                " WHERE pageid = " + pageid;
+
+            // db instance
+            WEBSITEDB db = new WEBSITEDB();
+            // execute crud query
+            db.CRUD_Query(query);
+
+            Response.Redirect("Manage.aspx");
+        }
+
+        protected void Recover_Click(object sender, EventArgs e)
+        {
+            // get pageid
+            string pageid = Request.QueryString["pageid"];
+
+            bool isPublished = true;
+
+            // execute update query
+            //UPDATE pages SET pagetitle = "123", pagebody = "321", isPublished = true WHERE pageid = 1
+            string query = "UPDATE pages SET isPublished = " + isPublished +
+                " WHERE pageid = " + pageid;
+
+            // db instance
+            WEBSITEDB db = new WEBSITEDB();
+            // execute crud query
+            db.CRUD_Query(query);
+
+            Response.Redirect("DetailPage.aspx?pageid=" + pageid);
         }
     }
 }
