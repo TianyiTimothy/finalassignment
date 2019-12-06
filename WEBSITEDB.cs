@@ -17,12 +17,25 @@ namespace CMSWebsite
         readonly string port = "3306";
         readonly string password = "root";
 
+        private MySqlConnection ConnectDatabase()
+        {
+            // connect to database
+            MySqlConnection Connect = new MySqlConnection("server=" + server + "; " +
+                "user=" + user + "; " +
+                "database=" + database + "; " +
+                "port=" + port + "; " +
+                "password=" + password + "; ");
+
+            return Connect;
+        }
+
         public List<HTMLPAGE> List_Query(string query)
         {
+
             List<HTMLPAGE> Pages = new List<HTMLPAGE>();
 
             List<Dictionary<string, string>> ResultSet = new List<Dictionary<string, string>>();
-            MySqlConnection Connect = connectDatabase();
+            MySqlConnection Connect = ConnectDatabase();
 
             try
             {
@@ -57,6 +70,7 @@ namespace CMSWebsite
 
             foreach (Dictionary<string, string> row in ResultSet)
             {
+                string pageid = row["pageid"];
                 string pagetitle = row["pagetitle"];
                 string pagebody = row["pagebody"];
                 string isPublished = row["isPublished"];
@@ -64,6 +78,7 @@ namespace CMSWebsite
                 // new instance of page
                 HTMLPAGE page = new HTMLPAGE
                 {
+                    PageId = pageid,
                     PageTitle = pagetitle,
                     PageBody = pagebody,
                     IsPublished = isPublished
@@ -71,30 +86,15 @@ namespace CMSWebsite
 
                 // add data to list page
                 Pages.Add(page);
-
-
             }
-
             return Pages;
-        }
-
-        private MySqlConnection connectDatabase()
-        {
-            // connect to database
-            MySqlConnection Connect = new MySqlConnection("server=" + server + "; " +
-                "user=" + user + "; " +
-                "database=" + database + "; " +
-                "port=" + port + "; " +
-                "password=" + password + "; ");
-
-            return Connect;
         }
 
         public void CRUD_Query(string query)
         {
             //INSERT INTO `pages`(`pageid`, `pagetitle`, `pagebody`, `isPublished`) VALUES(null, "Dairy 12-4", "Just finished all the exams !! Happy Holiday !!", 1)
             // connect to database
-            MySqlConnection Connect = connectDatabase();
+            MySqlConnection Connect = ConnectDatabase();
 
             try
             {

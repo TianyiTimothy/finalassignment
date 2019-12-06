@@ -25,7 +25,7 @@ namespace CMSWebsite
                 // show existed data
                 // get pagetitle and pagebody and isPublished query 
                 // if isPublished, remain delete button. If not, show recover button
-                string query = "SELECT pagetitle, pagebody, isPublished FROM pages WHERE pageid = " + pageid;
+                string query = "SELECT * FROM pages WHERE pageid = " + pageid;
 
                 List<HTMLPAGE> Pages = new WEBSITEDB().List_Query(query);
 

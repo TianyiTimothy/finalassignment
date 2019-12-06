@@ -7,26 +7,30 @@ namespace CMSWebsite
 {
     public class HTMLPAGE
     {
-
-        // this is me running out of time
+        // a page contains these
+        private string pageid;
+        private string pagetitle;
+        private string pagebody;
+        private string ispublished;
         public string PageId
         {
-            get { return PageId; }
+            get { return pageid; }
+            set { pageid = value; }
         }
         public string PageTitle
         {
-            get { return PageTitle; }
-            set { PageTitle = value; }
+            get { return pagetitle; }
+            set { pagetitle = value; }
         }
         public string PageBody
         {
-            get { return PageBody; }
-            set { PageBody = value; }
+            get { return pagebody; }
+            set { pagebody = value; }
         }
         public string IsPublished
         {
-            get { return IsPublished; }
-            set { IsPublished = value; }
+            get { return ispublished; }
+            set { ispublished = value; }
         }
 
 

@@ -17,7 +17,7 @@ namespace CMSWebsite
             navigation.InnerHtml = "";
 
             // query for page titles
-            string query = "SELECT pageid, pagetitle FROM pages WHERE isPublished = true";
+            string query = "SELECT * FROM pages WHERE isPublished = true";
             // get page titles from db
             List<HTMLPAGE> Pages = new WEBSITEDB().List_Query(query);
 
