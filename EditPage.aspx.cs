@@ -27,20 +27,17 @@ namespace CMSWebsite
                 // if isPublished, remain delete button. If not, show recover button
                 string query = "SELECT pagetitle, pagebody, isPublished FROM pages WHERE pageid = " + pageid;
 
-                List<Dictionary<string, string>> ResultSet = new WEBSITEDB().List_Query(query);
+                List<HTMLPAGE> Pages = new WEBSITEDB().List_Query(query);
 
-                foreach (Dictionary<string, string> row in ResultSet)
+                foreach (HTMLPAGE page in Pages)
                 {
-                    string pagetitle = row["pagetitle"];
-                    string pagebody = row["pagebody"];
-                    string isPublished = row["isPublished"];
 
                     // show current data
-                    PageTitle.Text = pagetitle;
-                    PageBody.Text = pagebody;
+                    PageTitle.Text = page.PageTitle;
+                    PageBody.Text = page.PageBody;
 
                     // if isPublished, hide recover button. If not, hide recover button
-                    if (isPublished == "True" || isPublished == "1")
+                    if (page.IsPublished == "True" || page.IsPublished == "1")
                     {
                         // if isPublished, hide recover button
                         RecoverBtn.Style.Add("display", "none");

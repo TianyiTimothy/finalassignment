@@ -17,10 +17,11 @@ namespace CMSWebsite
         readonly string port = "3306";
         readonly string password = "root";
 
-        public List<Dictionary<string, string>> List_Query(string query)
+        public List<HTMLPAGE> List_Query(string query)
         {
-            List<Dictionary<string, string>> ResultSet = new List<Dictionary<string, string>>();
+            List<HTMLPAGE> Pages = new List<HTMLPAGE>();
 
+            List<Dictionary<string, string>> ResultSet = new List<Dictionary<string, string>>();
             MySqlConnection Connect = connectDatabase();
 
             try
@@ -54,7 +55,27 @@ namespace CMSWebsite
             // close connection
             Connect.Close();
 
-            return ResultSet;
+            foreach (Dictionary<string, string> row in ResultSet)
+            {
+                string pagetitle = row["pagetitle"];
+                string pagebody = row["pagebody"];
+                string isPublished = row["isPublished"];
+
+                // new instance of page
+                HTMLPAGE page = new HTMLPAGE
+                {
+                    PageTitle = pagetitle,
+                    PageBody = pagebody,
+                    IsPublished = isPublished
+                };
+
+                // add data to list page
+                Pages.Add(page);
+
+
+            }
+
+            return Pages;
         }
 
         private MySqlConnection connectDatabase()

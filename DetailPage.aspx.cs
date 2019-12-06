@@ -24,12 +24,12 @@ namespace CMSWebsite
             // query with pageid
             string query = "SELECT pagetitle, pagebody, isPublished FROM pages WHERE pageid = " + pageid;
 
-            List<Dictionary<string, string>> ResultSet = new WEBSITEDB().List_Query(query);
+            List<HTMLPAGE> Pages = new WEBSITEDB().List_Query(query);
 
-            Dictionary<string, string> row = ResultSet[0];
-            string pagetitle = row["pagetitle"];
-            string pagebody = row["pagebody"];
-            string isPublished = row["isPublished"];
+            HTMLPAGE page = Pages[0];
+            string pagetitle = page.PageTitle;
+            string pagebody = page.PageBody;
+            string isPublished = page.IsPublished;
 
             // get the page id first
             PageTitle.InnerText = pagetitle;

@@ -9,11 +9,26 @@ namespace CMSWebsite
     {
 
         // this is me running out of time
-        int PageId;
-        string PageTitle;
-        string PageBody;
-        bool IsPublished = false;
+        public string PageId
+        {
+            get { return PageId; }
+        }
+        public string PageTitle
+        {
+            get { return PageTitle; }
+            set { PageTitle = value; }
+        }
+        public string PageBody
+        {
+            get { return PageBody; }
+            set { PageBody = value; }
+        }
+        public string IsPublished
+        {
+            get { return IsPublished; }
+            set { IsPublished = value; }
+        }
 
-        
+
     }
 }

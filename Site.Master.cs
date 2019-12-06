@@ -19,12 +19,12 @@ namespace CMSWebsite
             // query for page titles
             string query = "SELECT pageid, pagetitle FROM pages WHERE isPublished = true";
             // get page titles from db
-            List<Dictionary<string, string>> ResultSet = new WEBSITEDB().List_Query(query);
+            List<HTMLPAGE> Pages = new WEBSITEDB().List_Query(query);
 
-            foreach (Dictionary<String, String> row in ResultSet)
+            foreach (HTMLPAGE page in Pages)
             {
-                string pagetitle = row["pagetitle"];
-                string pageid = row["pageid"];
+                string pagetitle = page.PageTitle;
+                string pageid = page.PageId;
 
                 navigation.InnerHtml += "<li> <a href=\"DetailPage.aspx?pageid=" + pageid + "\">" + pagetitle + "</a></li>";
             }

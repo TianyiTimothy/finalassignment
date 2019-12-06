@@ -42,20 +42,19 @@ namespace CMSWebsite
             // todo: when click table head, order by the clicked column
 
 
-            // result set for result from mysql
-            List<Dictionary<String, String>> ResultSet = new List<Dictionary<String, String>>();
-
+            // get pages from websitedb.cs
+            List<HTMLPAGE> Pages = new List<HTMLPAGE>();
             // get result with db class function
-            ResultSet = new WEBSITEDB().List_Query(query);
+            Pages = new WEBSITEDB().List_Query(query);
 
-            foreach (Dictionary<String, String> row in ResultSet)
+            foreach (HTMLPAGE page in Pages)
             {
                 //page_result.InnerHtml += "<td>";
 
-                string pageid = row["pageid"];
-                string pagetitle = row["pagetitle"];
-                string pagebody = row["pagebody"];
-                string ispublished = row["isPublished"];
+                string pageid = page.PageId;
+                string pagetitle = page.PageTitle;
+                string pagebody = page.PageBody;
+                string ispublished = page.IsPublished;
 
                 //< div class="col-xs-3">PAGE ID</div>
 
