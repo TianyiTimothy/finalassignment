@@ -116,7 +116,5 @@ namespace CMSWebsite
 
             Response.Redirect("DetailPage.aspx?pageid=" + pageid);
         }
-
     }
-
 }
