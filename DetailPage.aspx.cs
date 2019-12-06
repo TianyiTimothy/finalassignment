@@ -36,9 +36,7 @@ namespace CMSWebsite
                 PageBody.InnerText = pagebody;
 
                 PageAction.InnerHtml =
-                    "<a href=\"AddPage.aspx?pageid=" + pageid + "\">Add</a> | " +
-                    "<a href=\"AddPage.aspx?pageid=" + pageid + "\">Edit</a> | " +
-                    "<a href=\"AddPage.aspx?pageid=" + pageid + "\">Delete</a>";
+                    "<a href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>";
             }
         }
     }

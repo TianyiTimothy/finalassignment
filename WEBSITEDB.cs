@@ -21,13 +21,7 @@ namespace CMSWebsite
         {
             List<Dictionary<string, string>> ResultSet = new List<Dictionary<string, string>>();
 
-
-            // connect to database
-            MySqlConnection Connect = new MySqlConnection("server=" + server + "; " +
-                "user=" + user + "; " +
-                "database=" + database + "; " +
-                "port=" + port + "; " +
-                "password=" + password + "; ");
+            MySqlConnection Connect = connectDatabase();
 
             try
             {
@@ -36,7 +30,6 @@ namespace CMSWebsite
                 MySqlCommand cmd = new MySqlCommand(query, Connect);
                 // get result set ( class is mysqldatareader )
                 MySqlDataReader resultset = cmd.ExecuteReader();
-
 
                 // move result set from mysqldatareader to list<dictionary>
                 while (resultset.Read())
@@ -64,15 +57,23 @@ namespace CMSWebsite
             return ResultSet;
         }
 
-        public void CRUD_Query(string query)
+        private MySqlConnection connectDatabase()
         {
-            //INSERT INTO `pages`(`pageid`, `pagetitle`, `pagebody`, `isPublished`) VALUES(null, "Dairy 12-4", "Just finished all the exams !! Happy Holiday !!", 1)
             // connect to database
             MySqlConnection Connect = new MySqlConnection("server=" + server + "; " +
                 "user=" + user + "; " +
                 "database=" + database + "; " +
                 "port=" + port + "; " +
                 "password=" + password + "; ");
+
+            return Connect;
+        }
+
+        public void CRUD_Query(string query)
+        {
+            //INSERT INTO `pages`(`pageid`, `pagetitle`, `pagebody`, `isPublished`) VALUES(null, "Dairy 12-4", "Just finished all the exams !! Happy Holiday !!", 1)
+            // connect to database
+            MySqlConnection Connect = connectDatabase();
 
             try
             {

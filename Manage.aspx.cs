@@ -65,20 +65,9 @@ namespace CMSWebsite
                 //page_result.InnerHtml += "<div class=\"col-xs-3\">" + pagebody + "</div>";
                 page_result.InnerHtml += "<div class=\"col-xs-3\">" + ispublished + "</div>";
                 page_result.InnerHtml += "<div class=\"col-xs-3\">" +
-                    "<a href=\"AddPage.aspx?pageid=" + pageid + "\">Add</a> | " +
-                    "<a href=\"AddPage.aspx?pageid=" + pageid + "\">Edit</a> | " +
-                    "<a href=\"AddPage.aspx?pageid=" + pageid + "\">Delete</a>" +
+                    "<a href=\"EditPage.aspx?pageid=" + pageid + "\">Edit</a>" +
                     "</div>";
                 page_result.InnerHtml += "</div>";
-
-                //TableRow r = new TableRow();
-                //TableCell cell1 = new TableCell();
-                //cell1.Text = pagetitle;
-                //r.Cells.Add(cell1);
-                //r.Cells.Add(cell1);
-                //r.Cells.Add(cell1);
-                //r.Cells.Add(cell1);
-                //Table_Result.Rows.Add(r);
 
             }
 

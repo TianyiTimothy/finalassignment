@@ -15,7 +15,7 @@ namespace CMSWebsite
             navigation.InnerHtml = "<li><a href=\"Manage\">Manage</a></li>";
 
             // query for page titles
-            string query = "SELECT pageid, pagetitle FROM pages";
+            string query = "SELECT pageid, pagetitle FROM pages WHERE isPublished = true";
             // get page titles from db
             List<Dictionary<string, string>> ResultSet = new WEBSITEDB().List_Query(query);
 

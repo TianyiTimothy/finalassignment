@@ -8,7 +8,7 @@
         <asp:Button class="btn" runat="server" Text="submit" />
     </div>
 
-
+    <a class="btn btn-primary" href="\AddPage.aspx?">Add</a>
     <div class="text-center">
         <div class="row">
             <div class="col-xs-3">PAGE ID</div>
