@@ -11,43 +11,46 @@ namespace CMSWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // get pageid
-            string pageid = Request.QueryString["pageid"];
-            // if there is not pageid in url
-            if (String.IsNullOrEmpty(pageid))
+            if (!Page.IsPostBack)
             {
-                pageWrapper.InnerText = "<h1>ERROR: This page does not exist</h1>";
-                return;
-            }
-
-            // show existed data
-            // get pagetitle and pagebody and isPublished query 
-            // if isPublished, remain delete button. If not, show recover button
-            string query = "SELECT pagetitle, pagebody, isPublished FROM pages WHERE pageid = " + pageid;
-
-            List<Dictionary<string, string>> ResultSet = new WEBSITEDB().List_Query(query);
-
-            foreach (Dictionary<string, string> row in ResultSet)
-            {
-                string pagetitle = row["pagetitle"];
-                string pagebody = row["pagebody"];
-                string isPublished = row["isPublished"];
-
-                // show current data
-                PageTitle.Text = pagetitle;
-                PageBody.Text = pagebody;
-
-                // if isPublished, hide recover button. If not, hide recover button
-                if (isPublished == "True" || isPublished == "1")
+                // get pageid
+                string pageid = Request.QueryString["pageid"];
+                // if there is not pageid in url
+                if (String.IsNullOrEmpty(pageid))
                 {
-                    // if isPublished, hide recover button
-                    RecoverBtn.Style.Add("display", "none");
+                    pageWrapper.InnerText = "<h1>ERROR: This page does not exist</h1>";
+                    return;
                 }
-                else
-                {
-                    // if not, hide delete button
-                    DeleteBtn.Style.Add("display", "none");
 
+                // show existed data
+                // get pagetitle and pagebody and isPublished query 
+                // if isPublished, remain delete button. If not, show recover button
+                string query = "SELECT pagetitle, pagebody, isPublished FROM pages WHERE pageid = " + pageid;
+
+                List<Dictionary<string, string>> ResultSet = new WEBSITEDB().List_Query(query);
+
+                foreach (Dictionary<string, string> row in ResultSet)
+                {
+                    string pagetitle = row["pagetitle"];
+                    string pagebody = row["pagebody"];
+                    string isPublished = row["isPublished"];
+
+                    // show current data
+                    PageTitle.Text = pagetitle;
+                    PageBody.Text = pagebody;
+
+                    // if isPublished, hide recover button. If not, hide recover button
+                    if (isPublished == "True" || isPublished == "1")
+                    {
+                        // if isPublished, hide recover button
+                        RecoverBtn.Style.Add("display", "none");
+                    }
+                    else
+                    {
+                        // if not, hide delete button
+                        DeleteBtn.Style.Add("display", "none");
+
+                    }
                 }
             }
         }
